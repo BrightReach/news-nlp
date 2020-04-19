@@ -9,19 +9,19 @@ module.exports = {
         rules: [
             {
                 test: '/\.js$/',
-                exclude: /node_modules/,
-                loader: "babel-loader"
+                exclude: '/node_modules',
+                loader: 'babel-loader'
             },
             {
-                test: '/\.s[ac]ss$/i',
-                use: ['style-loader', 'css-loader', 'sass-loader',]
-            },
-        ],
-    plugins: [
-        new HtmlWebPackPlugin({
-            template: "./src/client/views/index.html",
-            filename: "./index.html",
+                test: '/\.s[ac]ss$/',
+                use: ['style-loader', 'css-loader', 'sass-loader']
+            }
+        ]
+    },
+        plugins: [
+            new HtmlWebPackPlugin({
+                template: './src/client/views/index.html',
+                filename: './index.html'
             })
         ]
     }
-}
