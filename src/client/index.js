@@ -1,8 +1,12 @@
 import { checkForName } from './js/nameChecker';
 import { handleSubmit } from './js/formHandler';
-import './styles/resets.scss';
+import { submitLink } from './js/newsEvaluate';
+import { checkUrl } from './js/urlRegex';
+import './styles/main.scss';
 
 export {
     checkForName,
-    handleSubmit
+    handleSubmit,
+    submitLink,
+    checkUrl
 }
