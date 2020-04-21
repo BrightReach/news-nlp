@@ -18,8 +18,9 @@ const submitLink = (event) => {
         (res) =>
           (document.getElementById(
             'results'
-          ).innerHTML = `<p>Message: ${res.message}<br>
-    time: ${res.time}</p>`)
+          ).innerHTML = `<p>Polarity: ${res.polarity} (Confidence rating: ${res.polarity_confidence})<br><br>
+          Subjectivity: ${res.subjectivity} (Confidence rating: ${res.subjectivity_confidence})<br><br>
+          Text: ${res.text}</p>`)
       );
   }
 };
