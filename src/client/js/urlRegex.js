@@ -1,14 +1,20 @@
 let checkUrl = (url) => {
-    const regex = RegExp(/^(https?|ftp):\/\/([a-zA-Z0-9.-]+(:[a-zA-Z0-9.&%$-]+)*@)*((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])){3}|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(:[0-9]+)*(\/($|[a-zA-Z0-9.,?'\\+&%$#=~_-]+))*$/)
-    const data = url
+  const regex = RegExp(
+    /^(https?|ftp):\/\/([a-zA-Z0-9.-]+(:[a-zA-Z0-9.&%$-]+)*@)*((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])){3}|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(:[0-9]+)*(\/($|[a-zA-Z0-9.,?'\\+&%$#=~_-]+))*$/
+  );
+  const data = url;
+  try {
     if (regex.test(data) === true) {
-        console.log('point 1' + data);
-        return data 
+      console.log('point 1' + data);
+      return data;
+    } else if (!data) {
+      throw 'Input should not be empty';
     } else {
-        document.getElementById('results').innerHTML = `Error: Enter the correct url`;
+      throw 'Enter the correct url';
     }
-    
+  } catch (err) {
+    document.getElementById('results').innerHTML = `Error: ${err}`;
+  }
+};
 
-}
-
-export { checkUrl }
+export { checkUrl };

@@ -14,24 +14,29 @@ const mockAPIResponse = require('./mockAPI.js')
 const app = express()
 
 app.use(express.static('dist'))
+const cors = require('cors');
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const cors = require('cors')
-app.use(cors())
+app.use(cors());
 
 console.log(__dirname)
 
 app.post('/evaluate', (req, res) => {
-    textapi.sentiment({
-        url: req
+    console.log(req.body.url);
+    /*textapi.sentiment({
+        url: req.body.url
     }, (err, res) => {
+        console.log(res)
         if (err === null)
         res.send(res);
-    })
-    })
+    })*/
+    let newData = mockAPIResponse
+    console.log(newData)
+    res.send(newData);
+})
 
 app.get('/', (req, res) => {
     // res.sendFile('dist/index.html')
